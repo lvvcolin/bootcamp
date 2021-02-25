@@ -1,9 +1,7 @@
 <?php
 
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\LogoutController;
-use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,18 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function() {
+Route::get('/', function () {
     return view('welcome');
-    })->name('welcome');
+});
 
-Route::get('/home', function() {
-    return view('home');
-    })->name('home');
+Auth::routes(['verify' => true]);
 
-Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
-
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/login', [LoginController::class, 'store']);
-
-Route::get('/register', [RegisterController::class, 'index'])->name('register');
-Route::post('/register', [RegisterController::class, 'store']);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
