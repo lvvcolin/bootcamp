@@ -21,8 +21,20 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'remember_token',
     ];
-    
+
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // User has many files $user->files;
+    public function files()
+    {
+        return $this->hasMany(File::class);
+    }
+
+    // This is the pivot table connection with Assignment model
+    public function assignments()
+    {
+        return $this->belongsToMany(Assignment::class);
+    }
 }
