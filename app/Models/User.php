@@ -37,18 +37,4 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->belongsToMany(Assignment::class);
     }
-
-    public function visitors()
-    {
-        return $this->role == 0;
-    }
-
-    public function registered_users()
-    {
-        return $this->role == 1;
-    }
-    public function admin()
-    {
-        return $this->role == 2;
-    }
 }
