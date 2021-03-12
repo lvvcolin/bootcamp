@@ -16,6 +16,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'password',
         'role',
+        
     ];
 
     protected $hidden = [
@@ -25,6 +26,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     protected $casts = [
         'email_verified_at' => 'datetime',
+
     ];
 
     // User has many files $user->files;
@@ -39,17 +41,16 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsToMany(Assignment::class);
     }
 
-    public function visitors()
-    {
-        return $this->role == 0;
-    }
-
-    public function registered_users()
+    public function student()
     {
         return $this->role == 1;
     }
-    public function admin()
+    public function teacher()
     {
         return $this->role == 2;
+    }
+    public function moderator()
+    {
+        return $this->role == 3;
     }
 }
