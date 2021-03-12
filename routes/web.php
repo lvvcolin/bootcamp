@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\FileuploadController;
+use App\Http\Controllers\FileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,4 +23,4 @@ Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('fileupload', FileuploadController::class);
+Route::resource('file', FileController::class);
