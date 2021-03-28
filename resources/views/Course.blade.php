@@ -45,17 +45,18 @@
 	<div class="row">
 		@foreach($courses as $course)
 			<div class="col-md-4">
-                <div class="card">
+                <div class="card-body">
     				<div class="col-md-6">
-    					<a href="{{route('course_show',[$course->id])}}">{{$course->name}}</a>
-    				</div>
-    				<div class="col-md-12">
-    					{{$course->description}}
-    				</div>
-    				<div class="col-md-12">
     				
-                    <img src="{{$course->image}}" alt="" class="" width="150">
     				</div>
+    				<div class="col-md-12">
+                        <a href="{{route('course_show',[$course->id])}}"><img src="{{$course->image}}" alt="" class="" style="height: 167px;
+    width: 100%!important;"></a>
+                    
+    				</div>
+                    <div class="col-md-12">
+                        <h2><b>{{$course->name}}</b></h2>
+                    </div>
                 </div>
 			</div>
 		@endforeach

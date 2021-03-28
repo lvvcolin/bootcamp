@@ -21,6 +21,8 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
+Route::middleware('auth')->group(function () {
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
@@ -31,10 +33,12 @@ Route::get('/course/create', [App\Http\Controllers\CourseController::class, 'cre
 
 Route::get('/course/{course}/assignments', [App\Http\Controllers\AssignmentController::class, 'index'])->name('course_show');
 
+
 Route::get('/course/{course}/assignments/create', [App\Http\Controllers\AssignmentController::class, 'create'])->name('create_assignments');
+});
 
 
 
-Route::resource('file', FileController::class);
+
 
 
