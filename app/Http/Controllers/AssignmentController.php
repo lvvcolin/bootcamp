@@ -24,6 +24,23 @@ class AssignmentController extends Controller
     	$assignment->create($this->validateAssignments());
     	return back();
     }
+    public function show(Course $course,Assignment $assignment)
+    {
+
+            $assignments =  $assignment;
+
+
+
+   
+
+
+
+      
+    
+
+
+        return view('Insideassignment.Insideassignment', compact('assignments'));
+    }
 
       protected function validateAssignments()
     {

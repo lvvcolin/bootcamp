@@ -45,7 +45,14 @@
     <div class="row">
          @foreach($assignments as $assignment)
         <div class="col-md-4">
-            {{$assignment->name}}
+           <div class="col-md-12">
+                <img src=" {{$assignment->video_url}}" alt="" class="" style="height: 167px;
+                width: 100%!important;">
+
+            </div>
+            <div class="col-md-12">
+               <a href="{{url('/course/'. $course->id . '/assignments/' . $assignment->id )}}">check out</a>
+            </div>
         </div>
         @endforeach
     </div>

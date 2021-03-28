@@ -35,6 +35,8 @@ Route::get('/course/{course}/assignments', [App\Http\Controllers\AssignmentContr
 
 
 Route::get('/course/{course}/assignments/create', [App\Http\Controllers\AssignmentController::class, 'create'])->name('create_assignments');
+
+Route::get('/course/{course}/assignments/{assignment}', [App\Http\Controllers\AssignmentController::class, 'show'])->name('show_assignments');
 });
 
 
