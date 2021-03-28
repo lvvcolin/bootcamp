@@ -15,5 +15,10 @@ class Course extends Model
     {
         return $this->hasMany(Assignment::class);
     }
+    
+    public function getImageAttribute($value)
+	 {
+	 return asset('storage/' . $value);
+	 }
 
 }

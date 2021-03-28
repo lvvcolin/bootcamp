@@ -23,4 +23,18 @@ Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+
+Route::get('/course', [App\Http\Controllers\CourseController::class, 'index'])->name('course_index');
+
+Route::get('/course/create', [App\Http\Controllers\CourseController::class, 'create'])->name('course_create');
+
+Route::get('/course/{course}/assignments', [App\Http\Controllers\AssignmentController::class, 'index'])->name('course_show');
+
+Route::get('/course/{course}/assignments/create', [App\Http\Controllers\AssignmentController::class, 'create'])->name('create_assignments');
+
+
+
 Route::resource('file', FileController::class);
+
+

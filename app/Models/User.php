@@ -38,7 +38,7 @@ class User extends Authenticatable implements MustVerifyEmail
     // This is the pivot table connection with Assignment model
     public function assignments()
     {
-        return $this->belongsToMany(Assignment::class);
+        return $this->belongsToMany(Assignment::class,'assignment_user', 'assignment_id','user_id');
     }
 
     public function student()
