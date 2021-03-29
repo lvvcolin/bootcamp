@@ -50,13 +50,13 @@ class AssignmentController extends Controller
 
 
          $attributes['image'] = request('image')->storeAs('videosImages', request('image')->getClientOriginalName());
-         
+
          $attributes['avatar'] = request('avatar')->storeAs('AvatarImages', request('avatar')->getClientOriginalName());
 
 
          
          return $attributes;
-         return $attributes;
+        
 
           
 
