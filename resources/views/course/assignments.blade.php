@@ -11,10 +11,10 @@
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
-                <form method="POST" action="{{route('create_assignments',[$course->id])}}">
+                <form method="POST" action="{{route('create_assignments',[$course->id])}}" enctype="multipart/form-data">
                     @csrf
                      @method('GET')
-                    <div class="inner-form">
+                    <div class="inner-form" style="padding: 30px">
                         <input type="hidden" value="{{$course->id}}" name="course_id">
 
                         <div class="col-xs-12 col-sm-12 col-md-12 col-l-12 col-xl-12 inner-text">
@@ -31,9 +31,14 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleInputEmail1">video</label>
-                            <input type="file"  name="video_url" class="form-control" id="image" aria-describedby="=" required>
+                            <label for="exampleInputEmail1">video_url</label>
+                            <input type="file"  name="image" class="form-control" placeholder="enter a url" id="image" aria-describedby="=" required>
                         </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">avatar</label>
+                            <input type="file"  name="avatar" class="form-control" placeholder="enter a url" id="image" aria-describedby="=" required>
+                        </div>
+
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
@@ -46,9 +51,7 @@
          @foreach($assignments as $assignment)
         <div class="col-md-4">
            <div class="col-md-12">
-                <img src=" {{$assignment->video_url}}" alt="" class="" style="height: 167px;
-                width: 100%!important;">
-
+              <img src="{{$assignment->avatar}}"> 
             </div>
             <div class="col-md-12">
                <a href="{{url('/course/'. $course->id . '/assignments/' . $assignment->id )}}">check out</a>

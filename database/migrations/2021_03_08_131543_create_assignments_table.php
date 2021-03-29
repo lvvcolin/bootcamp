@@ -13,7 +13,8 @@ class CreateAssignmentsTable extends Migration
             $table->foreignId('course_id')->constrained()->onDelete('cascade');
             $table->string('name');
             $table->text('description');
-            $table->string('video_url')->nullable();
+            $table->binary('image');
+            $table->binary('avatar');
             $table->timestamps();
         });
 
@@ -34,5 +35,6 @@ class CreateAssignmentsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('assignments');
+        Schema::dropIfExists('assignment_user');
     }
 }

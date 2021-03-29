@@ -29,4 +29,13 @@ class Assignment extends Model
     	return $this->belongsToMany(User::class);
     }
 
+    public function getImageAttribute($value)
+     {
+     return asset('storage/' . $value);
+     }
+      public function getAvatarAttribute($value)
+     {
+     return asset('storage/' . $value);
+     }
+
 }

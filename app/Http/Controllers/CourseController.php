@@ -30,7 +30,6 @@ class CourseController extends Controller
             'name' =>'required',
             'description' => 'required',
             'image' => ['required','file'],
-            
         ]);
 
        
