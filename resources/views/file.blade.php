@@ -2,7 +2,6 @@
 
 
 @section('content')
-jeoma is boven
-
+Test
 
 @endsection

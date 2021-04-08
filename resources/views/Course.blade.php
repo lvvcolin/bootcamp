@@ -51,7 +51,7 @@
     				</div>
     				<div class="col-md-12">
                         <a href="{{route('course_show',[$course->id])}}"><img src="{{$course->image}}" alt="" class="" style="height: 167px;
-    width: 100%!important;"></a>
+                        width: 100%!important;"></a>
                     
     				</div>
                     <div class="col-md-12">

@@ -22,8 +22,8 @@ class CreateAssignmentsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('assignment_id');
             $table->unsignedBigInteger('user_id');
-            $table->timestamp('completed_at')->nullable(); // Exact date that it is completed
-            $table->timestamp('submitted_at')->nullable(); // Exact date that it is submitted
+            $table->timestamp('completed_at')->nullable(); // Exact date that it video is completed
+            $table->timestamp('submitted_at')->nullable(); // Exact date that it assignment is submitted
             $table->timestamps();
 
             $table->unique(['assignment_id', 'user_id']);
