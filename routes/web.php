@@ -27,6 +27,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 
+    Route::get('/profiles/{user}', [App\Http\Controllers\ProfilesController::class, 'show'])->name('profile');
+
+
+
+
 Route::get('/course', [App\Http\Controllers\CourseController::class, 'index'])->name('course_index');
 
 Route::get('/course/create', [App\Http\Controllers\CourseController::class, 'create'])->name('course_create');
