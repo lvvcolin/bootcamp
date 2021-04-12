@@ -39,7 +39,7 @@ Route::get('/course/{course}/assignments/create', [App\Http\Controllers\Assignme
 Route::get('/course/{course}/assignments/{assignment}', [App\Http\Controllers\AssignmentController::class, 'show'])->name('show_assignments');
 });
 
-
+Route::get('/faq', [App\Http\Controllers\FaqController::class, 'index'])->name('Faq');
 
 
 
