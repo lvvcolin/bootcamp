@@ -7,7 +7,6 @@
             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add course</button>
         </div>
 	</div>
-    <a href=""></a>
 	<div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
