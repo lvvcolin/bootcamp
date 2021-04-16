@@ -3,11 +3,13 @@
 @section('content')
 <div class="container">
     <div class="row">
+        @if(Auth::User()->moderator() || Auth::User()->teacher())
         <div class="col-xs-12 col-sm-12 col-md-12 text-right">
             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add course</button>
         </div>
-	</div>
-	<div id="myModal" class="modal fade" role="dialog">
+        @endif
+    </div>
+    <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
@@ -41,30 +43,26 @@
         </div>
     </div>
 </div>
-<div class="container-fluid">
-	<div class="row">
-		@foreach($courses as $course)
-			<div class="col-md-4">
+<div class="container">
+    <div class="row">
+        @foreach($courses as $course)
+            <div class="col-12 col-xs-12 col-sm-12 col-md-4">
                 <div class="card-body">
-    				<div class="col-md-6">
-    				
-    				</div>
-    				<div class="col-md-12">
+                    <div class="col-12 col-xs-12 col-sm-12 col-md-12">
                         <a href="{{route('course_show',[$course->id])}}"><img src="{{$course->image}}" alt="" class="" style="height: 167px;
                         width: 100%!important;"></a>
-                    
-    				</div>
-                    <div class="col-md-12">
+                    </div>
+                    <div class="col-12 col-xs-12 col-sm-12 col-md-12">
                         <h2><b>{{$course->name}}</b></h2>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-12 col-xs-12 col-sm-12 col-md-12">
                         <b>{{$course->description}}</b>
                     </div>
                 </div>
-			</div>
-		@endforeach
+            </div>
+        @endforeach
 
-	</div>
+    </div>
 </div>
 
 @endsection

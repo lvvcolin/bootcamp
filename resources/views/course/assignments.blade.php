@@ -3,11 +3,14 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 text-right">
-            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add asiggnments</button>
-        </div>
-	</div>
-	<div id="myModal" class="modal fade" role="dialog">
+
+        @if(Auth::User()->moderator() || Auth::User()->teacher())
+            <div class="col-xs-12 col-sm-12 col-md-12 text-right">
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add asiggnments</button>
+            </div>
+        @endif
+    </div>
+    <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
