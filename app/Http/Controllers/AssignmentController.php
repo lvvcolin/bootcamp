@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Assignment;
+use App\Models\Reaction;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 
 class AssignmentController extends Controller
@@ -20,8 +23,6 @@ class AssignmentController extends Controller
     public function create(Course $Course)
     {
 
-
-
     $assignment = Assignment::Create($this->validateAssignments());
 
 
@@ -31,11 +32,11 @@ class AssignmentController extends Controller
     public function show(Course $course,Assignment $assignment)
     {
 
-            $assignments =  $assignment;
+    $reactions = $assignment->reactions;
+    $user = User::find(Auth::user());
 
-
-
-        return view('Insideassignment.Insideassignment', compact('assignments'));
+    $assignments =  $assignment;
+    return view('Insideassignment.Insideassignment', compact('assignments','course','user','reactions'));
     }
 
       protected function validateAssignments()

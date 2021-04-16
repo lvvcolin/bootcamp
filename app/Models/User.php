@@ -29,6 +29,11 @@ class User extends Authenticatable implements MustVerifyEmail
 
     ];
 
+    public function reactions()
+    {
+        return $this->hasMany(Reaction::class);
+    }
+
     // User has many files $user->files;
     public function files()
     {

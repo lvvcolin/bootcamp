@@ -23,6 +23,11 @@ class Assignment extends Model
         return $this->hasMany(File::class);
     }
 
+     public function reactions()
+    {
+        return $this->hasMany(Reaction::class);
+    }
+
     // This is the pivot table connection with User model
     public function users()
     {
