@@ -26,10 +26,13 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::middleware('auth')->group(function () {
-	    Route::get('/profiles/{user}', [App\Http\Controllers\ProfilesController::class, 'show'])->name('profile');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//Profile
+Route::get('/profiles/{user}', [App\Http\Controllers\ProfilesController::class, 'show'])->name('profile');
+Route::get('/profiles/{user:username}/edit', [App\Http\Controllers\ProfilesController::class, 'edit'])->name('profile_edit');
+Route::patch('/profiles/{user:username}', [App\Http\Controllers\ProfilesController::class, 'update'])->name('profile_update');
 
 //courses
 Route::get('/course', [App\Http\Controllers\CourseController::class, 'index'])->name('course_index');

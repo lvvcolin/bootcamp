@@ -13,10 +13,12 @@ class User extends Authenticatable implements MustVerifyEmail
 
     protected $fillable = [
         'name',
+        'username',
+        'avatar',
         'email',
         'password',
         'role',
-        
+
     ];
 
     protected $hidden = [
@@ -43,7 +45,7 @@ class User extends Authenticatable implements MustVerifyEmail
     // This is the pivot table connection with Assignment model
     public function assignments()
     {
-        return $this->belongsToMany(Assignment::class,'assignment_user', 'assignment_id','user_id');
+        return $this->belongsToMany(Assignment::class, 'assignment_user', 'assignment_id', 'user_id');
     }
 
     public function student()
@@ -57,5 +59,19 @@ class User extends Authenticatable implements MustVerifyEmail
     public function moderator()
     {
         return $this->role == 3;
+    }
+
+    public function getRouteKeyName()
+
+    {
+
+        return "username";
+    }
+
+    public function getAvatarAttribute($value)
+
+    {
+
+        return asset('storage/' . $value);
     }
 }
