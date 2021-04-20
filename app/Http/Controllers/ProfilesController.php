@@ -32,29 +32,23 @@ class ProfilesController
 
 	{
 
-		$user->update($this->validateProf());
-
-		return back();
-	}
-
-	protected function validateProf()
-
-	{
-
 		$attributes = request()->validate([
 
-			'username' => ['string', 'required', 'max:255', 'alpha_dash',],
+			'username' => ['string', 'required', 'max:255', 'alpha_dash', Rule::unique('users')->ignore($user)],
 			'name' => ['string', 'required', 'max:255'],
 			'avatar' => ['file', 'dimensions:min_width=100,min_height=200',],
-			'email' => ['string', 'required', 'email', 'max:255',],
+			'email' => ['string', 'required', 'email', 'max:255',Rule::unique('users')->ignore($user)],
 			'password' => (['string', 'required', 'min:8', 'max:255', 'confirmed'])
 
 		]);
-
+		
 		$attributes['password'] = Hash::make(request('password'));
 
 		$attributes['avatar'] = request('avatar')->storeAs('avatars', request('avatar')->getClientOriginalName());
 
-		return $attributes;
+		$user->update($attributes);
+		
+		return redirect(route('profile', $user->username));
 	}
+	
 }
