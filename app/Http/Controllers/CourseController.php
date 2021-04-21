@@ -13,6 +13,7 @@ class CourseController extends Controller
     {
 
     $courses = Course::all();
+
     return view('Course',compact('courses'));
     }
 

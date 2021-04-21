@@ -33,10 +33,14 @@
                             <input type="text"  name="description" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                         </div>
 
+
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Video url</label>
-                            <input type="file"  name="image" class="form-control" placeholder="enter a url" id="image" aria-describedby="=" required>
+                            <label for="exampleInputEmail1">youtube_link</label>
+                            <input type="text"  name="youtube_link" class="form-control" placeholder="enter a url" id="image" aria-describedby="=" >
+                            <div id="emailHelp" class="form-text">past a youtube url instead of a video</div>
                         </div>
+
+                        
                         <div class="form-group">
                             <label for="exampleInputEmail1">Thumbnail</label>
                             <input type="file"  name="avatar" class="form-control" placeholder="enter a url" id="image" aria-describedby="=" required>

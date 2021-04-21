@@ -13,7 +13,7 @@ class CreateAssignmentsTable extends Migration
             $table->foreignId('course_id')->constrained()->onDelete('cascade');
             $table->string('name');
             $table->text('description');
-            $table->binary('image');
+            $table->binary('youtube_link');
             $table->binary('avatar');
             $table->timestamps();
         });

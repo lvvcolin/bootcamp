@@ -45,13 +45,11 @@ class AssignmentController extends Controller
             'course_id' => 'required',
             'name' => 'required',
             'description' => 'required',
-            'image' => ['file','required'],
+            'youtube_link' => 'required',
             'avatar' => ['file','required'],
         ]);
-
-
-         $attributes['image'] = request('image')->storeAs('videosImages', request('image')->getClientOriginalName());
-
+            
+     
          $attributes['avatar'] = request('avatar')->storeAs('AvatarImages', request('avatar')->getClientOriginalName());
 
 
