@@ -54,6 +54,7 @@
             </div>
         </div>
     </div>
+  
     <div class="row">
          @foreach($assignments as $assignment)
         <div class="col-md-4">

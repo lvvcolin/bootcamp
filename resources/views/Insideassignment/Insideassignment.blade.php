@@ -12,8 +12,21 @@
   			
 		</div>
 
+
+
+		<div class="col-md-12 mt-2">
+			<form method="post" action="{{route('startAssignment',[$course->id,$assignments->id])}}">
+				@csrf
+				@method('GET')
+				<input type="submit" value="submit excercise" name="submit" class="btn btn-info">
+			</form>
+		</div>
+	
+
+
+
 		@foreach($user as $use)
-		<div class="col-md-6">
+		<div class="col-md-6 mt-5">
 			<form method="post" action="{{route('create_reaction',[$course->id,$assignments->id])}}">
 				@csrf
 				@method('GET')
@@ -27,9 +40,6 @@
 				<input type="submit" name="submit" >
 			</form>
 		</div>
-		<br>
-		<br>
-		<br>
 		@endforeach
 		<div class="col-md-12">
 			<div class="card" style="width: 18rem;">

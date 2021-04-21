@@ -14,12 +14,12 @@ class AssignmentController extends Controller
 {
     public function index(Course $course)
     {
-        
         $assignments = $course->assingments;
        
 
        return view('course.assignments',compact('course','assignments'));
     }
+
     public function create(Course $Course)
     {
 
@@ -37,6 +37,16 @@ class AssignmentController extends Controller
 
     $assignments =  $assignment;
     return view('Insideassignment.Insideassignment', compact('assignments','course','user','reactions'));
+    }
+
+
+    public function startAssignment(Course $course,Assignment $assignment, User $user)
+    {
+
+       $user->assignments()->attach(Auth::User(),['assignment_id'=>$assignment->id, 'submitted_at' =>NOW()]);
+
+        return back();
+
     }
 
       protected function validateAssignments()

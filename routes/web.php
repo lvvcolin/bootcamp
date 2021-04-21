@@ -50,5 +50,7 @@ Route::get('/faq', [App\Http\Controllers\FaqController::class, 'index'])->name('
 
 });
 
+Route::get('/course/{course}/assignments/{assignment}/startAssignment', [App\Http\Controllers\AssignmentController::class, 'startAssignment'])->name('startAssignment');
+
 
 
