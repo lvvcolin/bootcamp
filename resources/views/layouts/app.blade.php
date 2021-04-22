@@ -67,7 +67,7 @@
                                         
                                     </a>
 
-                                    <a class="dropdown-item" href="{{ route('course_index', auth()->user()) }}">
+                                    <a class="dropdown-item" href="{{ route('course_index') }}">
                                         
                                         {{ __('Course') }}
                                         
