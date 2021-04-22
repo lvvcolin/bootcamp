@@ -11,7 +11,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <!-- embed styles zorgt ervoor dat wij youtube linkjes vanuit de url werkt -->
+        <x-embed-styles />
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
