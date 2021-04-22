@@ -20,8 +20,8 @@ class CreateAssignmentsTable extends Migration
 
         Schema::create('assignment_user', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('assignment_id');
-            $table->unsignedBigInteger('user_id');
+            $table->foreignId('assignment_id');
+            $table->foreignId('user_id');
             $table->timestamp('completed_at')->nullable(); // Exact date that it video is completed
             $table->timestamp('submitted_at')->nullable(); // Exact date that it assignment is submitted
             $table->timestamps();
