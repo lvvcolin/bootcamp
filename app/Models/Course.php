@@ -11,14 +11,31 @@ class Course extends Model
 
     protected $guarded = [];
 
-    public function assingments()
+    public function assignments()
     {
         return $this->hasMany(Assignment::class);
     }
-    
-    public function getImageAttribute($value)
-	 {
-	 return asset('storage/' . $value);
-	 }
 
+    public function PrevCourse()
+    {
+        return Course::find($this->id - 1);
+    }
+
+    public function PrevCourseCompleted($user)
+    {
+        $allAssignmentsPrevCourse = $this->PrevCourse()->assignments;
+        $completedAssignmentsByUser = $user->CompletedAssignments($this->PrevCourse());
+        
+        $diff = $allAssignmentsPrevCourse->diff($completedAssignmentsByUser);
+        if(count($diff) > 0){
+            return False;
+        } else {
+            return True;
+        }
+    }
+
+    public function getImageAttribute($value)
+    {
+        return asset('storage/' . $value);
+    }
 }

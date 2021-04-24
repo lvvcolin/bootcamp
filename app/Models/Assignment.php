@@ -31,7 +31,7 @@ class Assignment extends Model
     // This is the pivot table connection with User model
     public function users()
     {
-    	return $this->belongsToMany(User::class);
+    	return $this->belongsToMany(User::class, 'assignment_user', 'assignment_id', 'user_id')->withPivot(['completed_at','submitted_at']);
     }
 
     public function getImageAttribute($value)

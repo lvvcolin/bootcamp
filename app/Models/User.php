@@ -45,7 +45,12 @@ class User extends Authenticatable implements MustVerifyEmail
     // This is the pivot table connection with Assignment model
     public function assignments()
     {
-        return $this->belongsToMany(Assignment::class, 'assignment_user', 'assignment_id', 'user_id')->withPivot('completed_at','submitted_at');
+        return $this->belongsToMany(Assignment::class)->withPivot('assignment_id','completed_at','submitted_at');
+    }
+
+    public function CompletedAssignments($course)
+    {
+        return $this->belongsToMany(Assignment::class)->where('course_id', $course->id)->wherePivot('completed_at', '!=', null)->get();
     }
 
     public function student()
