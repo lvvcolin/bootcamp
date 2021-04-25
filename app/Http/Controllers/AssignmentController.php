@@ -14,8 +14,10 @@ class AssignmentController extends Controller
 {
     public function index(Course $course)
     {
-        $assignments = $course->assingments;
-       
+
+        $assignments = $course->assignments;
+
+
 
        return view('course.assignments',compact('course','assignments'));
     }
@@ -24,13 +26,12 @@ class AssignmentController extends Controller
     {
 
     $assignment = Assignment::Create($this->validateAssignments());
-
-
-
     return back();
     }
     public function show(Course $course,Assignment $assignment)
     {
+
+
 
     $reactions = $assignment->reactions;
     $user = User::find(Auth::user());
