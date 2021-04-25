@@ -71,6 +71,24 @@
                     <div class="card-body">
                         <div class="col-12 col-xs-12 col-sm-12 col-md-12">
                             <div class="card">
+                                <a href="{{route('course_show',[$course->id])}}"><img src="{{$course->image}}" alt="" class="" style="height: 167px;
+                                width: 100%!important;"></a>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-xs-12 col-sm-12 col-md-12">
+                            <h2><b>{{$course->name}}</b></h2>
+                        </div>
+                        <div class="col-12 col-xs-12 col-sm-12 col-md-12">
+                            <b>{{$course->description}}</b>
+                        </div>
+                    </div>
+                </div>
+            @else
+            <div class="col-12 col-xs-12 col-sm-12 col-md-4">
+                    <div class="card-body">
+                        <div class="col-12 col-xs-12 col-sm-12 col-md-12">
+                            <div class="card">
                                 <img src="{{$course->image}}" alt="" class="" style="height: 167px;
                                 width: 100%!important; filter: brightness(32%);
 ">
@@ -87,7 +105,6 @@
                         </div>
                     </div>
                 </div>
-           
            @endif
            @endforeach
     @endif
