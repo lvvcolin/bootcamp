@@ -43,18 +43,19 @@ class AssignmentController extends Controller
 
     public function startAssignment(Course $course,Assignment $assignment)
     {
-
+        // if pivot user_id is empty
         if($assignment->users()->where('user_id',Auth::user()->id)->get()->isEmpty() == true ) 
         {
 
+        // submit user to assignment
         $assignment->users()->attach(Auth::user(),['submitted_at'=>NOW()]);
+        return back();
 
         }else{
-                                    
-            echo "already submitted";
-           
+
+            // already submited             
+            return redirect (route('show_file',[$course->id, $assignment->id]));
         }
-  
 
     }
 

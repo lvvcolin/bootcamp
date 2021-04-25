@@ -4,16 +4,29 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\File;
+use App\Models\Course;
+use App\Models\Assignment;
+use App\Models\Reaction;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 
 class FileController extends Controller
 {
+
+
+    public function index(Course $course,Assignment $assignment)
+    {
+        
+        $user = Auth::user();
+        return view('file',compact('user','assignment','course'));
+    }
     public function store(Request $request)
     {
         File::create($this->validateFile());
         
         
-        return redirect();
+        return back();
     }
 
     public function show()
@@ -40,7 +53,7 @@ class FileController extends Controller
     protected function validateFile()
     {
         $attributes = request()->validate([
-            'name' => 'required',
+            'file' => 'required',
             'file' => ['file'],
             'user_id' => 'required',
         ]);

@@ -52,5 +52,9 @@ Route::get('/faq', [App\Http\Controllers\FaqController::class, 'index'])->name('
 
 Route::get('/course/{course}/assignments/{assignment}/startAssignment', [App\Http\Controllers\AssignmentController::class, 'startAssignment'])->name('startAssignment');
 
+Route::get('/course/{course}/assignments/{assignment}/show_file', [App\Http\Controllers\FileController::class, 'index'])->name('show_file');
+
+Route::get('/course/{course}/assignments/{assignment}/create_file', [App\Http\Controllers\FileController::class, 'store'])->name('create_file');
+
 
 
