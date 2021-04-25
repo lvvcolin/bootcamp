@@ -41,12 +41,20 @@ class AssignmentController extends Controller
     }
 
 
-    public function startAssignment(Course $course,Assignment $assignment, User $user)
+    public function startAssignment(Course $course,Assignment $assignment)
     {
 
-       $assignment->users()->attach(Auth::User(),['submitted_at' =>NOW()]);
+        if($assignment->users()->where('user_id',Auth::user()->id)->get()->isEmpty() == true ) 
+        {
 
-        return back();
+        $assignment->users()->attach(Auth::user(),['submitted_at'=>NOW()]);
+
+        }else{
+                                    
+            echo "already submitted";
+           
+        }
+  
 
     }
 

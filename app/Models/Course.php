@@ -23,11 +23,16 @@ class Course extends Model
 
     public function PrevCourseCompleted($user)
     {
+
         $allAssignmentsPrevCourse = $this->PrevCourse()->assignments;
         $completedAssignmentsByUser = $user->CompletedAssignments($this->PrevCourse());
         
         $diff = $allAssignmentsPrevCourse->diff($completedAssignmentsByUser);
-        if(count($diff) > 0){
+
+        
+
+
+        if(count($diff) > 0 ||  count($allAssignmentsPrevCourse) == 0 ){
             return False;
         } else {
             return True;
