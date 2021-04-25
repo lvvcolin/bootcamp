@@ -44,7 +44,7 @@ class AssignmentController extends Controller
     public function startAssignment(Course $course,Assignment $assignment, User $user)
     {
 
-       $user->assignments()->attach(Auth::User(),['assignment_id'=>$assignment->id, 'submitted_at' =>NOW()]);
+       $assignment->users()->attach(Auth::User(),['submitted_at' =>NOW()]);
 
         return back();
 
