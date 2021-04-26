@@ -48,7 +48,19 @@ Route::get('/course/{course}/assignments/{assignment}/reactions', [App\Http\Cont
 //faq
 Route::get('/faq', [App\Http\Controllers\FaqController::class, 'index'])->name('Faq');
 
-});
+//admin
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin_index');
+
+// Route::middleware(['auth', 'users'])->group(function () {
+//     Route::get('', function () {
+//         return view('admin');
+//     });
+//     Route::resources([
+        
+//         'users' => App\Http\Controllers\AdminUserController::class
+//     ]);
+// });
+// });
 
 Route::get('/course/{course}/assignments/{assignment}/startAssignment', [App\Http\Controllers\AssignmentController::class, 'startAssignment'])->name('startAssignment');
 

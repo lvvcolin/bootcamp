@@ -61,6 +61,10 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->role == 3;
     }
 
+    public function isAdmin()
+    {
+        return (boolean)$this->Admin;
+    }
     public function getRouteKeyName()
 
     {
