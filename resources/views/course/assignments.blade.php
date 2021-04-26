@@ -46,6 +46,7 @@
                             <input type="file"  name="avatar" class="form-control" placeholder="enter a url" id="image" aria-describedby="=" required>
                         </div>
 
+
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
@@ -56,7 +57,7 @@
     </div>
   
     <div class="row">
-         @foreach($assignments as $assignment)
+         @foreach($course->assignments as $assignment)
         <div class="col-md-4">
            <div class="col-md-12">
             <img src="{{$assignment->avatar}}" alt="" class="" style="height: 167px;

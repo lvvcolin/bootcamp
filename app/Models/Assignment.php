@@ -25,7 +25,7 @@ class Assignment extends Model
 
      public function reactions()
     {
-        return $this->hasMany(Reaction::class);
+        return $this->hasMany(Reaction::class)->orderByDesc('created_at');
     }
 
     // This is the pivot table connection with User model
