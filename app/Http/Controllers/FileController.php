@@ -17,9 +17,18 @@ class FileController extends Controller
 
     public function index(Course $course,Assignment $assignment)
     {
-        
+
+    //if user has no assignment render 404
+    if ($assignment->users()->where('user_id', Auth::user()->id)->get()->isEmpty() == true) 
+    {
+        abort(404);
+
+    }else{
         $user = Auth::user();
         return view('file',compact('user','assignment','course'));
+
+    }
+        
     }
     public function store(Request $request)
     {
