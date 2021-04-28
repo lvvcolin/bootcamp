@@ -14,7 +14,7 @@ class AdminUserController extends Controller
     public function index()
     {
        $users = User::paginate(200);
-       return view('user.index', compact('users'));
+       return view('admin.user.index', compact('users'));
     }
     
     public function show(User $user)
@@ -25,8 +25,9 @@ class AdminUserController extends Controller
     //edit user
     public function edit(User $user)
     {
-        return view('user.edit', compact('user'));
+        return view('admin.user.edit', compact('user'));
     }
+    
     public function update(Request $request, User $user)
     {
          $user->update([
