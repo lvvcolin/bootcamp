@@ -48,6 +48,16 @@ Route::get('/course/{course}/assignments/{assignment}/reactions', [App\Http\Cont
 //faq
 Route::get('/faq', [App\Http\Controllers\FaqController::class, 'index'])->name('Faq');
 
+//admin
+
+Route::group(['middleware' => 'admin'], function () {
+    
+
+    Route::resources([
+        'users' => App\Http\Controllers\AdminUserController::class
+    ]);
+});
+
 });
 
 Route::get('/course/{course}/assignments/{assignment}/startAssignment', [App\Http\Controllers\AssignmentController::class, 'startAssignment'])->name('startAssignment');
