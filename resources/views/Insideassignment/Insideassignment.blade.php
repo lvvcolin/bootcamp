@@ -4,10 +4,10 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12 text-left">
-			<h2>{{$assignment->name}}</h2>
+			<h1 class="text-5xl">{{$assignment->name}}</h1>
 		</div>
 		<div class="col-md-12 text-left">
-			<h2>{{$assignment->description}}</h2>
+			<p>{{$assignment->description}}</p>
 		</div>
 		<div class="col-md-12">
 			

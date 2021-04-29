@@ -23,7 +23,12 @@ class Assignment extends Model
         return $this->hasMany(File::class);
     }
 
-     public function reactions()
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
+
+    public function reactions()
     {
         return $this->hasMany(Reaction::class)->orderByDesc('created_at');
     }
@@ -31,16 +36,15 @@ class Assignment extends Model
     // This is the pivot table connection with User model
     public function users()
     {
-    	return $this->belongsToMany(User::class, 'assignment_user', 'assignment_id', 'user_id')->withPivot(['completed_at','submitted_at']);
+        return $this->belongsToMany(User::class, 'assignment_user', 'assignment_id', 'user_id')->withPivot(['completed_at', 'submitted_at']);
     }
 
     public function getImageAttribute($value)
-     {
-     return asset('storage/' . $value);
-     }
-      public function getAvatarAttribute($value)
-     {
-     return asset('storage/' . $value);
-     }
-
+    {
+        return asset('storage/' . $value);
+    }
+    public function getAvatarAttribute($value)
+    {
+        return asset('storage/' . $value);
+    }
 }

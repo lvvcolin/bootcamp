@@ -10,26 +10,21 @@ use App\Models\Assignment;
 
 class Reaction extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    protected $guarded = [];
+  protected $guarded = [];
 
+  public function assignments()
+  {
+    return $this->belongsTo(Assignment::class);
+  }
 
-
-
-    public function assignments()
-    {
-      return $this->belongsTo(assignments::class);
-    }
-    
-    public function users()
-    {
-      return $this->belongsTo(User::class);
-    }
-    public function Getname()
-    {
+  public function users()
+  {
+    return $this->belongsTo(User::class);
+  }
+  public function Getname()
+  {
     return User::find($this->user_id)->name;
-       
-    }
-   
+  }
 }
