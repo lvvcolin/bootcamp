@@ -21,7 +21,8 @@
                         <input type="hidden" value="{{$course->id}}" name="course_id">
 
                         <div class="col-xs-12 col-sm-12 col-md-12 col-l-12 col-xl-12 inner-text">
-                            <h1>Add assignments</h1>
+                            <h1 class="text-xl-center font-semibold">Add assignments</h1>
+                            <br>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Name</label>
@@ -35,12 +36,12 @@
 
 
                         <div class="form-group">
-                            <label for="exampleInputEmail1">youtube_link</label>
+                            <label for="exampleInputEmail1">Youtube_link</label>
                             <input type="text"  name="youtube_link" class="form-control" placeholder="enter a url" id="image" aria-describedby="=" >
-                            <div id="emailHelp" class="form-text">past a youtube url instead of a video</div>
+                            <div id="emailHelp" class="form-text font-light">Paste a youtube url instead of uploading a video</div>
                         </div>
 
-                        
+
                         <div class="form-group">
                             <label for="exampleInputEmail1">Thumbnail</label>
                             <input type="file"  name="avatar" class="form-control" placeholder="enter a url" id="image" aria-describedby="=" required>
@@ -55,14 +56,14 @@
             </div>
         </div>
     </div>
-  
+
     <div class="row">
          @foreach($course->assignments as $assignment)
         <div class="col-md-4">
            <div class="col-md-12">
             <img src="{{$assignment->avatar}}" alt="" class="" style="height: 167px;
     width: 100%!important;">
-             
+
             </div>
             <div class="col-md-12">
                <a href="{{url('/course/'. $course->id . '/assignments/' . $assignment->id )}}">Check out</a>
