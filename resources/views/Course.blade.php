@@ -18,22 +18,23 @@
                      @method('GET')
                     <div class="inner-form" style="padding: 39px;">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-l-12 col-xl-12 inner-text">
-                            <h1>Add course</h1>
+                            <h1 class="text-xl-center font-semibold">Add course</h1>
+                            <br>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Name</label>
                             <input type="text"  name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">description</label>
+                            <label for="exampleInputEmail1">Description</label>
                             <input type="text"  name="description" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">image</label>
+                            <label for="exampleInputEmail1">Image</label>
                             <input type="file"  name="image" class="form-control" id="image" aria-describedby="=" required>
                         </div>
 
-                        
+
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
@@ -105,13 +106,13 @@
                         </div>
                     </div>
                 </div>
-           
+
            @endif
            @endforeach
     @endif
     @if(Auth::User()->moderator() || Auth::User()->teacher())
         @foreach($courses as $course)
-               
+
                <div class="col-12 col-xs-12 col-sm-12 col-md-4">
                 <div class="card-body">
                     <div class="col-12 col-xs-12 col-sm-12 col-md-12">
@@ -119,13 +120,13 @@
                         width: 100%!important;"></a>
                     </div>
                     <div class="col-12 col-xs-12 col-sm-12 col-md-12">
-                        <h2><b>{{$course->name}}</b></h2>
+                        <h2 class="mt-2">{{$course->name}}</h2>
                     </div>
                     <div class="col-12 col-xs-12 col-sm-12 col-md-12">
-                        <b>{{$course->description}}</b>
+                        <p class="font-light">{{$course->description}}</p>
                     </div>
                 </div>
-            </div>     
+            </div>
         @endforeach
     @endif
     </div>
