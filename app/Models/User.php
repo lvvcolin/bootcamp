@@ -45,7 +45,7 @@ class User extends Authenticatable implements MustVerifyEmail
     // This is the pivot table connection with Assignment model
     public function assignments()
     {
-        return $this->belongsToMany(Assignment::class)->withPivot('assignment_id','completed_at','submitted_at');
+        return $this->belongsToMany(Assignment::class)->withPivot('assignment_id', 'completed_at', 'submitted_at');
     }
 
     public function CompletedAssignments($course)
@@ -71,15 +71,17 @@ class User extends Authenticatable implements MustVerifyEmail
         return (boolean)$this->Admin;
     }
     public function getRouteKeyName()
-
     {
-
         return "username";
     }
 
     public function getAvatarAttribute($value)
     {
+<<<<<<< HEAD
         return asset($value ? asset('storage/' . $value) : 'https://www.gravatar.com/avatar/');
        
+=======
+        return $value ? asset('storage/' . $value) : 'https://www.gravatar.com/avatar/';
+>>>>>>> assignments_hidden
     }
 }

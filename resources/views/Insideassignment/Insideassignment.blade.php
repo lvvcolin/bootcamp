@@ -49,7 +49,7 @@
 					<li class="list-group-item">
 						<div class="row"> 
 							<div class="col-md-12"> 
-								{{$reaction->Getname()}}
+								{{ $reaction->user->name }}
 							</div>
 							<div class="col-md-12">
 								{{$reaction->reacties}}
