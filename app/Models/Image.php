@@ -9,7 +9,7 @@ class Image extends Model
 {
     use HasFactory;
 
-    public function assignments()
+    public function assignment()
     {
         return $this->belongsTo(Assignment::class);
     }
