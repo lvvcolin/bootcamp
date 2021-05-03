@@ -10,9 +10,9 @@
 			<p>{{$assignment->description}}</p>
 		</div>
 		<div class="col-md-12">
-			
+
 			<x-embed url="{{$assignment->youtube_link}}" />
-  			
+
 		</div>
 
 
@@ -24,7 +24,7 @@
 				<input type="submit" value="submit excercise" name="submit" class="btn btn-info">
 			</form>
 		</div>
-	
+
 
 
 
@@ -32,14 +32,15 @@
 			<form method="post" action="{{route('create_reaction',[$course->id,$assignment->id])}}">
 				@csrf
 				@method('GET')
-				<input class="form-control form-control-lg" type="text" placeholder="reacties" aria-label=".form-control-lg example" name="reacties">
+				<input class="form-control form-control-lg" type="text" placeholder="message"
+					aria-label=".form-control-lg example" name="message">
 
 
 
 				<input type="hidden" name="user_id" value="{{auth()->id()}}">
 				<input type="hidden" name="assignment_id" value="{{$assignment->id}}">
 
-				<input type="submit" name="submit" >
+				<input type="submit" name="submit">
 			</form>
 		</div>
 		<div class="col-md-12">
@@ -47,12 +48,12 @@
 				<ul class="list-group list-group-flush">
 					@foreach($assignment->reactions as $reaction)
 					<li class="list-group-item">
-						<div class="row"> 
-							<div class="col-md-12"> 
+						<div class="row">
+							<div class="col-md-12">
 								{{ $reaction->user->name }}
 							</div>
 							<div class="col-md-12">
-								{{$reaction->reacties}}
+								{{$reaction->message}}
 							</div>
 						</div>
 					</li>

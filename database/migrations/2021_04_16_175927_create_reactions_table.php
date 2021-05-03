@@ -15,7 +15,7 @@ class CreateReactionsTable extends Migration
     {
         Schema::create('reactions', function (Blueprint $table) {
             $table->id();
-            $table->string('reacties');
+            $table->string('message');
              $table->foreignId('assignment_id')->constrained()->onDelete('cascade');
              $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();

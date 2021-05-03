@@ -77,11 +77,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function getAvatarAttribute($value)
     {
-<<<<<<< HEAD
-        return asset($value ? asset('storage/' . $value) : 'https://www.gravatar.com/avatar/');
-       
-=======
         return $value ? asset('storage/' . $value) : 'https://www.gravatar.com/avatar/';
->>>>>>> assignments_hidden
     }
 }
+    
