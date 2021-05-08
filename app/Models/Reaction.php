@@ -13,6 +13,7 @@ class Reaction extends Model
   use HasFactory;
 
   protected $guarded = [];
+  protected $with = ['user'];
 
   public function assignment()
   {

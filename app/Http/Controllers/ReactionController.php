@@ -13,19 +13,14 @@ class ReactionController extends Controller
 {
     public function create(Request $request)
     {
-        $reaction = new Reaction;
-        $reaction->message = $request->message;
-        $reaction->user_id = $request->user_id;
-        $reaction->assignment_id = $request->assignment_id;
-        $reaction->save();
 
-        // Reaction::create($this->validateReaction());
+        Reaction::create($this->validateReaction());
     }
 
     public function index(Course $course, Assignment $assignment)
     {
 
-        return $assignment->reactions->load('user');
+        return $assignment->reactions;
     }
 
 
