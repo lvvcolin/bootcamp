@@ -40,8 +40,8 @@ return [
             'host' => env('MAIL_HOST', 'smtp.gmail.com'),
             'port' => env('MAIL_PORT', 587),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => 'mkirez6@gmail.com',
-            'password' => 'vgnxihodtsfuteob',
+            'username' => 'teamd3.codinghighway@gmail.com',
+            'password' => 'sqbbeedpinfeilgn',
             'timeout' => null,
             'auth_mode' => null,
         ],
@@ -85,8 +85,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'mkirez6@gmail.com'),
-        'name' => env('MAIL_FROM_NAME', 'Mertste'),
+        'address' => env('MAIL_FROM_ADDRESS', 'teamd3.codinghighway@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', 'Codinghighway'),
     ],
 
     /*

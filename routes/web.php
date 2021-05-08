@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Profile
-Route::get('/profiles/{user}', [App\Http\Controllers\ProfilesController::class, 'show'])->name('profile');
+Route::get('/profiles/{user:username}', [App\Http\Controllers\ProfilesController::class, 'show'])->name('profile');
 Route::get('/profiles/{user:username}/edit', [App\Http\Controllers\ProfilesController::class, 'edit'])->name('profile_edit');
 Route::patch('/profiles/{user:username}', [App\Http\Controllers\ProfilesController::class, 'update'])->name('profile_update');
 
@@ -50,13 +50,10 @@ Route::get('/faq', [App\Http\Controllers\FaqController::class, 'index'])->name('
 
 //admin
 
-Route::group(['middleware' => 'admin'], function () {
-    
+Route::get('/admin/{user:username}', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
+Route::post('/admin/{user:username}', [App\Http\Controllers\AdminController::class, 'store']);
+Route::get('/admin/{user:username}/create', [App\Http\Controllers\AdminController::class, 'create'])->name('admin_create');
 
-    Route::resources([
-        'users' => App\Http\Controllers\AdminUserController::class
-    ]);
-});
 
 });
 

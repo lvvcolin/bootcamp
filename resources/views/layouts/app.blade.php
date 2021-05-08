@@ -11,6 +11,9 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
     <!-- embed styles zorgt ervoor dat wij youtube linkjes vanuit de url werkt -->
         <x-embed-styles />
     <!-- Fonts -->
@@ -20,6 +23,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    
 
 </head>
 <body>
