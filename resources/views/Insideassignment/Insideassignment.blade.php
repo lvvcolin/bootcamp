@@ -26,42 +26,7 @@
 		</div>
 
 
-
-
-		<div class="col-md-6 mt-5">
-			<form method="post" action="{{route('create_reaction',[$course->id,$assignment->id])}}">
-				@csrf
-				@method('GET')
-				<input class="form-control form-control-lg" type="text" placeholder="message"
-					aria-label=".form-control-lg example" name="message">
-
-
-
-				<input type="hidden" name="user_id" value="{{auth()->id()}}">
-				<input type="hidden" name="assignment_id" value="{{$assignment->id}}">
-
-				<input type="submit" name="submit">
-			</form>
-		</div>
-		<div class="col-md-12">
-			<div class="card" style="width: 18rem;">
-				<ul class="list-group list-group-flush">
-					@foreach($assignment->reactions as $reaction)
-					<li class="list-group-item">
-						<div class="row">
-							<div class="col-md-12">
-								{{ $reaction->user->name }}
-							</div>
-							<div class="col-md-12">
-								{{$reaction->message}}
-							</div>
-						</div>
-					</li>
-					@endforeach
-				</ul>
-
-			</div>
-		</div>
 	</div>
 </div>
+<reactions :auth_user="{{ auth()->user() }}" :assignment="{{ $assignment }}"></reactions>
 @endsection

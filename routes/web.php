@@ -43,7 +43,9 @@ Route::get('/course/{course}/assignments', [App\Http\Controllers\AssignmentContr
 Route::get('/course/{course}/assignments/create', [App\Http\Controllers\AssignmentController::class, 'create'])->name('create_assignments');
 Route::get('/course/{course}/assignments/{assignment}', [App\Http\Controllers\AssignmentController::class, 'show'])->name('show_assignments');
 //reactions
-Route::get('/course/{course}/assignments/{assignment}/reactions', [App\Http\Controllers\ReactionController::class, 'create'])->name('create_reaction');
+
+Route::get('/course/{course}/assignments/{assignment}/reactions', [App\Http\Controllers\ReactionController::class, 'index']);
+Route::post('/course/{course}/assignments/{assignment}/reactions/create', [App\Http\Controllers\ReactionController::class, 'create'])->name('create_reaction');
 
 //faq
 Route::get('/faq', [App\Http\Controllers\FaqController::class, 'index'])->name('Faq');

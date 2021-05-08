@@ -36,7 +36,9 @@ class AssignmentController extends Controller
     }
     public function show(Course $course, Assignment $assignment)
     {
-        return view('Insideassignment.Insideassignment', compact('assignment', 'course',));
+        // $assignment->reactions;
+        
+        return view('Insideassignment.Insideassignment', compact('assignment', 'course'));
     }
 
 
