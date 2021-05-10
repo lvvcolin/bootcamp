@@ -48,13 +48,13 @@
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
-                                <li class="nav-item">
+                                <li class="nav-item hover:bg-yellow-200 rounded">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-                            
+
                             @if (Route::has('register'))
-                                <li class="nav-item">
+                                <li class="nav-item hover:bg-yellow-200 rounded">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
@@ -67,15 +67,15 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
                                     <a class="dropdown-item" href="{{ route('profile', auth()->user()) }}">
-                                        
+
                                         {{ __('Profile') }}
-                                        
+
                                     </a>
 
                                     <a class="dropdown-item" href="{{ route('course_index') }}">
-                                        
+
                                         {{ __('Course') }}
-                                        
+
                                     </a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"

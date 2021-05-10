@@ -4,13 +4,16 @@
 
 <div class="container">
 
+    <a href="{{ url()->previous() }}" class="bg-blue-400 text-white rounded py-2 px-4 mb-6 hover:bg-blue-500 float-right">Back</a>
+    <br>
+
     <form method="POST" action="{{ route('profile_update', [$user])}}" enctype="multipart/form-data">
 
         @csrf
 
         @method('PATCH')
 
-        <div class="mb-6">
+        <div class="my-6">
 
             <label for="name" class="block mb-2 uppercase font-bold text-xs text-gray-700">
 
