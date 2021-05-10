@@ -53,6 +53,22 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsToMany(Assignment::class)->where('course_id', $course->id)->wherePivot('completed_at', '!=', null)->get();
     }
 
+    public function isAdmin()
+    {
+        return (boolean)$this->Admin;
+    }
+
+    public function getRouteKeyName()
+    {
+        return "username";
+    }
+
+    public function getAvatarAttribute($value)
+    {
+        return $value ? asset('storage/' . $value) : 'https://www.gravatar.com/avatar/';
+    }
+    // -------------------------- ROLES --------------------------
+
     public function student()
     {
         return $this->role == 1;
@@ -66,18 +82,23 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->role == 3;
     }
 
-    public function isAdmin()
+    public function getRoleName()
     {
-        return (boolean)$this->Admin;
+        if($this->student()){
+            return "Student";
+        }
+        
+        elseif ($this->teacher()){
+            return "Teacher";
+        }    
+        
+        elseif ($this->moderator()){
+            return "Moderator";  
+        }
+        else{
+            return "Account not confirmed";
+        }        
     }
-    public function getRouteKeyName()
-    {
-        return "username";
-    }
-
-    public function getAvatarAttribute($value)
-    {
-        return $value ? asset('storage/' . $value) : 'https://www.gravatar.com/avatar/';
-    }
+    
 }
     
