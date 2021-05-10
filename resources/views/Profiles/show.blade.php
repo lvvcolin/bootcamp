@@ -26,11 +26,11 @@
         <div
             class="col-span-12 w-full px-3 py-6 justify-center flex space-x-4 border-b border-solid md:space-x-0 md:space-y-4 md:flex-col md:col-span-2 md:justify-start ">
 
-            <a href="" class="text-sm p-2 bg-blue-600 text-white text-center rounded font-bold">My Profile</a>
+            <a href="" class="text-sm p-2 bg-blue-500 text-white text-center rounded font-bold">Mijn Profiel</a>
 
             <a href="{{ route('profile_edit', [$user]) }}"
                 class="text-sm p-2 bg-blue-300 text-center rounded font-semibold hover:bg-blue-200 hover:text-gray-800">Update
-                Information</a>
+                Informatie</a>
 
             <a href="#"
                 class="text-sm p-2 bg-blue-300 text-center  rounded font-semibold hover:bg-blue-200 hover:text-gray-800">Another
@@ -47,7 +47,7 @@
 
                     <div>
 
-                        <h3 class="text-xl font-semibold">Basic Information</h3>
+                        <h3 class="text-xl font-semibold">Basis informatie</h3>
 
                         <hr>
 
@@ -55,7 +55,7 @@
 
                     <div class="form-item">
 
-                        <label class="text-lg ">Name</label>
+                        <label class="text-lg ">Naam</label>
 
                         <input type="text" value="{{ $user->name}}"
                             class="w-full appearance-none text-black text-opacity-70 rounded shadow-sm py-1 px-2  mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200"
@@ -67,7 +67,7 @@
 
                         <div class="form-item w-full">
 
-                            <label class="text-lg ">Username</label>
+                            <label class="text-lg ">Gebruikersnaam</label>
 
                             <input type="text" value="{{ $user->username}}"
                                 class="w-full appearance-none text-black text-opacity-70 rounded shadow-sm py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25 "
@@ -89,7 +89,7 @@
 
                     <div>
 
-                        <h3 class="text-xl font-semibold">My Repo channels</h3>
+                        <h3 class="text-xl font-semibold">Mijn repository channels</h3>
 
                         <hr>
 
