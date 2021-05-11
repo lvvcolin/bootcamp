@@ -4,7 +4,7 @@
 
 <div class="container">
 
-    <a href="{{ url()->previous() }}" class="bg-blue-400 text-white rounded py-2 px-4 mb-6 hover:bg-blue-500 float-right">Back</a>
+    <a href="{{ url()->previous() }}" class="bg-yellow-300 text-white rounded py-2 px-4 mb-6 hover:bg-yellow-200 float-right">Back</a>
     <br>
 
     <form method="POST" action="{{ route('profile_update', [$user])}}" enctype="multipart/form-data">
@@ -129,7 +129,7 @@
 
         <div class="mb-6">
 
-            <button type="submit" class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500">
+            <button type="submit" class="bg-yellow-300 text-white rounded py-2 px-4 hover:bg-yellow-200">
 
                 Submit
 
