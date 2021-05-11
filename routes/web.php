@@ -20,7 +20,7 @@ use App\Mail\NewUserWelcomemail;
 //test
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes(['verify' => true]);
@@ -53,7 +53,7 @@ Route::get('/faq', [App\Http\Controllers\FaqController::class, 'index'])->name('
 //admin
 
 Route::group(['middleware' => 'admin'], function () {
-    
+
 
     Route::resources([
         'users' => App\Http\Controllers\AdminUserController::class
